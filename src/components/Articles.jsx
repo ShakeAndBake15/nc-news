@@ -9,22 +9,28 @@ const Articles = () => {
         getArticles().then((response) => {
             setArticles(response.articles);
         })
-    })
+    }, [])
 
   return (
     <>
     <h2>Latest Articles</h2>
         {articles.map((article) => {
             return (
-                <section id="articles">
+                <section id="articles" key={article.article_id}>
                 <br />
                   <h4 id="articleTitle"><strong>{article.title}</strong></h4>
-                    <p id="authorTitle">Author: <strong>{article.author}</strong></p>
-                    <p id="catergoryTitle">Category: {article.topic}</p>
-                    <p id="createdAtTitle">Posted: {article.created_at}</p>
-                    <p id="articleBody">{article.body.slice(0, 400)}...</p>
-                    <p>Votes: {article.votes}</p>
-                    <p>Comments: {article.comment_count}</p>
+                  <dl>
+                    <dt id="authorTitle"><strong>Author:</strong></dt>
+                    <dd>{article.author}</dd>
+                    <dt id="catergoryTitle"><strong>Category:</strong></dt>
+                    <dd>{article.topic}</dd>
+                    <dt id="createdAtTitle"><strong>Posted date:</strong></dt>
+                    <dd>{article.created_at.slice(0, 10)}</dd>
+                    <dt><strong>Votes ⬆️ ⬇️:</strong></dt>
+                    <dd> {article.votes}</dd>
+                    <dt><strong>Comments 💬:</strong></dt>
+                    <dd>{article.comment_count}</dd>
+                  </dl>
                 <br />
                 </section>
             )

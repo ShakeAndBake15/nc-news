@@ -3,7 +3,6 @@ import './App.css';
 import Articles from './components/Articles';
 import Header from './components/Header';
 import NavBar from './components/NavBar'
-import SignInButton from './components/SignInButton';
 
 function App() {
   return (
@@ -12,7 +11,6 @@ function App() {
     <header>
       <Header />
       <NavBar />
-      <SignInButton />
     </header>
     <main>
         <Routes>

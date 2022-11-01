@@ -5,6 +5,7 @@ import Header from './components/Header';
 import NavBar from './components/NavBar'
 import SearchArticles from './components/SearchArticle';
 import ArticleByCatergory from './components/ArticleByCatergory';
+import ArticleById from './components/ArticleById';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Articles />} />
           <Route path='/:topic' element={<ArticleByCatergory />} />
+          <Route path='/article/:article_id' element={<ArticleById />} />
         </Routes>
     </main>
     </div>

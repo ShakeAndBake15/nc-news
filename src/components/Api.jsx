@@ -19,3 +19,9 @@ export const getArticleById = (article_id) => {
         return response.data;
     })
 }
+
+export const patchArticleById = (article_id) => {
+    return newsApi.get(`/articles/${article_id}`, article_id).then((response) => {
+        return response.data;
+    })
+}

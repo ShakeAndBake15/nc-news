@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getArticles } from "./Api";
+import { getArticles, } from "./Api";
 
 const Articles = () => {
 
@@ -32,7 +32,7 @@ const Articles = () => {
                     <dd>{article.comment_count}</dd>
                   </dl>
                 <br />
-                </section>
+              </section>
             )
         })}
     </>

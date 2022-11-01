@@ -7,3 +7,9 @@ export const getArticles = () => {
         return response.data;
     })
 }
+
+export const getArticlesByTopic = (topic) => {
+    return newsApi.get(`/articles?topic=${topic}`, topic).then((response) => {
+        return response.data;
+    })
+}

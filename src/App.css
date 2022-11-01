@@ -50,6 +50,12 @@ h2{
   list-style:inside;
 }
 
+#articleCatForm {
+  padding: 2%;
+  margin: 10%;
+  background-color: bisque;
+}
+
 main {
   background-color: darkgray;
   color:antiquewhite;

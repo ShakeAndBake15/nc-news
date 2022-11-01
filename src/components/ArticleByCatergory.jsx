@@ -26,7 +26,7 @@ const ArticleByCatergory = () => {
         return (
             <section id="articles" key={article.article_id}>
             <br />
-            <Link to={`/article/${article.article_id}`}><h4 id="articleTitle"><strong>{article.title}</strong></h4></Link>
+            <Link to={`/articles/${article.article_id}`}><h4 id="articleTitle"><strong>{article.title}</strong></h4></Link>
               <dl>
                 <dt id="authorTitle"><strong>Author:</strong></dt>
                 <dd>{article.author}</dd>

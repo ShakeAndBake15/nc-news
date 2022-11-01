@@ -22,15 +22,16 @@ const ArticleById = () => {
     <section id="articleById" key={article.article_id}>
     <br />
       <h4 id="articleTitle"><strong>{article.title}</strong></h4>
+      <ul>
+        <li><strong>Author:</strong> {article.author}</li>
+        <li><strong>Category:</strong> {article.topic}</li>
+        <li><strong>Posted date:</strong> {article.created_at.slice(0, 10)}</li>
+      </ul>
       <dl>
-        <dt id="authorTitle"><strong>Author:</strong></dt>
-        <dd>{article.author}</dd>
-        <dt id="catergoryTitle"><strong>Category:</strong></dt>
-        <dd>{article.topic}</dd>
+        <br />
         <dt id="bodyTitle"><strong>Article:</strong></dt>
         <dd>{article.body}</dd>
-        <dt id="createdAtTitle"><strong>Posted date:</strong></dt>
-        <dd>{article.created_at.slice(0, 10)}</dd>
+        <br />
         <dt><strong>Votes ⬆️ ⬇️:</strong></dt>
         <dd> {article.votes}</dd>
         <dt><strong>Comments 💬:</strong></dt>

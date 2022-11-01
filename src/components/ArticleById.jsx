@@ -10,7 +10,6 @@ const ArticleById = () => {
 
   useEffect(() => {
     getArticleById(article_id).then((response) => {
-        console.log(response)
         setArticle(response.article)
         setLoading(false)
     })
@@ -20,7 +19,7 @@ const ArticleById = () => {
     return <p>Loading...</p>
   }
   return (
-    <section id="articles" key={article.article_id}>
+    <section id="articleById" key={article.article_id}>
     <br />
       <h4 id="articleTitle"><strong>{article.title}</strong></h4>
       <dl>
@@ -28,7 +27,7 @@ const ArticleById = () => {
         <dd>{article.author}</dd>
         <dt id="catergoryTitle"><strong>Category:</strong></dt>
         <dd>{article.topic}</dd>
-        <dt id="bodyTitle">Article:</dt>
+        <dt id="bodyTitle"><strong>Article:</strong></dt>
         <dd>{article.body}</dd>
         <dt id="createdAtTitle"><strong>Posted date:</strong></dt>
         <dd>{article.created_at.slice(0, 10)}</dd>

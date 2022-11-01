@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getArticlesByTopic } from "./Api";
 
 const ArticleByCatergory = () => {
@@ -25,7 +26,7 @@ const ArticleByCatergory = () => {
         return (
             <section id="articles" key={article.article_id}>
             <br />
-              <h4 id="articleTitle"><strong>{article.title}</strong></h4>
+            <Link to={`/article/${article.article_id}`}><h4 id="articleTitle"><strong>{article.title}</strong></h4></Link>
               <dl>
                 <dt id="authorTitle"><strong>Author:</strong></dt>
                 <dd>{article.author}</dd>

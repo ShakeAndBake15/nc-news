@@ -6,6 +6,7 @@ import NavBar from './components/NavBar'
 import SearchArticles from './components/SearchArticle';
 import ArticleByCatergory from './components/ArticleByCatergory';
 import ArticleById from './components/ArticleById';
+import CommentsByArticle from './components/commentsByArticle';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path='/' element={<Articles />} />
           <Route path='/:topic' element={<ArticleByCatergory />} />
           <Route path='/articles/:article_id' element={<ArticleById />} />
+          <Route path='/articles/:article_id/comments' element={<CommentsByArticle />} />
         </Routes>
     </main>
     </div>

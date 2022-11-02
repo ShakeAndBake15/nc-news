@@ -84,6 +84,8 @@ main {
 #articleById {
   height: 95%;
   text-align: left;
+  margin-left: 2%;
+  margin-right: 2%;
   margin-bottom: 1rem;
 }
 
@@ -120,4 +122,15 @@ main {
   margin-left: 2%;
   margin-right: 2%;
   border-bottom: 2px solid black;
+}
+
+#commentAuthor {
+  width: fit-content;
+  color: #DBFCFF;
+}
+
+#commentBody{
+  height: fit-content;
+  width: fit-content;
+  border-left: 10px solid gray;
 }

@@ -24,10 +24,6 @@ const ArticleById = () => {
     })
   }
 
-  const handleDownClick = (event) => {
-    
-  }
-
   if(loading === true){
     return <p>Loading...</p>
   }
@@ -46,8 +42,8 @@ const ArticleById = () => {
         <dd>{article.body}</dd>
       </dl>
         <br />
-        <p><strong>Votes: {article.votes}</strong></p>
-        <button onClick={handleUpClick} disabled={votesIncrement !== 0}>⬆️ </button><button onClick={handleDownClick}>⬇️</button>
+        <p><strong>Votes: {article.votes+votesIncrement}</strong></p>
+        <button onClick={handleUpClick} disabled={votesIncrement !== 0}>❤️</button>
         <br />
         <p><strong>Comments 💬:{article.comment_count}</strong></p>
         <button>view comments</button>

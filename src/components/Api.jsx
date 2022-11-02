@@ -21,7 +21,7 @@ export const getArticleById = (article_id) => {
 }
 
 export const patchArticleById = (article_id) => {
-    return newsApi.get(`/articles/${article_id}`, article_id).then((response) => {
+    return newsApi.patch(`/articles/${article_id}`, {inc_votes: 1}).then((response) => {
         return response.data;
     })
 }

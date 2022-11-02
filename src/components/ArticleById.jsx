@@ -43,7 +43,7 @@ const ArticleById = () => {
       </dl>
         <br />
         <p><strong>Votes: {article.votes+votesIncrement}</strong></p>
-        <button onClick={handleUpClick} disabled={votesIncrement !== 0}>❤️</button>
+        <button id="likeButton" onClick={handleUpClick} disabled={votesIncrement !== 0}>❤️</button>
         <br />
         <p><strong>Comments 💬:{article.comment_count}</strong></p>
         <button>view comments</button>

@@ -27,7 +27,7 @@ const Articles = () => {
                     <dd>{article.topic}</dd>
                     <dt id="createdAtTitle"><strong>Posted date:</strong></dt>
                     <dd>{article.created_at.slice(0, 10)}</dd>
-                    <dt><strong>Votes ❤:</strong></dt>
+                    <dt><strong>Votes ❤️:</strong></dt>
                     <dd> {article.votes}</dd>
                     <dt><strong>Comments 💬:</strong></dt>
                     <dd>{article.comment_count}</dd>

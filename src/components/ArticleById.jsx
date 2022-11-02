@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getArticleById, patchArticleById } from "./Api";
 
 const ArticleById = () => {
@@ -45,8 +45,8 @@ const ArticleById = () => {
         <p><strong>Votes: {article.votes+votesIncrement}</strong></p>
         <button id="likeButton" onClick={handleUpClick} disabled={votesIncrement !== 0}>❤️</button>
         <br />
-        <p><strong>Comments 💬:{article.comment_count}</strong></p>
-        <button>view comments</button>
+        <p><strong>Comments:{article.comment_count}</strong></p>
+        <Link to={`/articles/${article.article_id}/comments`}><button>view comments 💬</button></Link>
     <br />
   </section>
   )

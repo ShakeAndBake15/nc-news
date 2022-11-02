@@ -46,7 +46,7 @@ const ArticleById = () => {
         <button id="likeButton" onClick={handleUpClick} disabled={votesIncrement !== 0}>❤️</button>
         <br />
         <p><strong>Comments:{article.comment_count}</strong></p>
-        <Link to={`/articles/${article.article_id}/comments`}><button>view comments 💬</button></Link>
+        <Link to={`/articles/${article.article_id}/comments`}><button id="commentButton">view comments 💬</button></Link>
     <br />
   </section>
   )

@@ -14,6 +14,12 @@ export const getArticlesByTopic = (topic) => {
     })
 }
 
+export const getArticlesByQuery = (value) => {
+    return newsApi.get(`/articles?sort_by=${value}`).then((response) => {
+        return response.data;
+    })
+}
+
 export const getArticleById = (article_id) => {
     return newsApi.get(`/articles/${article_id}`, article_id).then((response) => {
         return response.data;

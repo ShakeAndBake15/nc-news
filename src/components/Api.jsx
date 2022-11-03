@@ -31,3 +31,9 @@ export const getCommentsByArticle = (article_id) => {
         return response.data;
     })
 }
+
+export const addCommentByArticle = (article_id, commentToAdd) => {
+    return newsApi.post(`/articles/${article_id}/comments`, commentToAdd).then((response) => {
+        return response.data;
+    })
+}

@@ -107,13 +107,14 @@ main {
   font-size: 25px;
 }
 
-#commentButton {
+#addComment {
   background-color: transparent;
   background-repeat: no-repeat;
   border: none;
   cursor: pointer;
   overflow: hidden;
   outline: none;
+  color: aqua;
   font-size: 15px;
 }
 

@@ -7,7 +7,6 @@ import SearchArticles from './components/SearchArticle';
 import ArticleByCatergory from './components/ArticleByCatergory';
 import ArticleById from './components/ArticleById';
 
-
 function App() {
 
   return (

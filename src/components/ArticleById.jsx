@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getArticleById, patchArticleById } from "./Api";
+import CommentsByArticle from "./CommentsByArticle";
 
 const ArticleById = () => {
 
@@ -23,11 +24,12 @@ const ArticleById = () => {
       setVotesIncrement((votesIncrement) => votesIncrement - 1)
     })
   }
-
+//comment add to git push change in import name
   if(loading === true){
     return <p>Loading...</p>
   }
   return (
+    <>
     <section id="articleById" key={article.article_id}>
     <br />
       <h2 id="articleTitle"><strong>{article.title}</strong></h2>
@@ -42,13 +44,14 @@ const ArticleById = () => {
         <dd>{article.body}</dd>
       </dl>
         <br />
-        <p><strong>Votes: {article.votes+votesIncrement}</strong></p>
+        <h3><strong>Votes: {article.votes+votesIncrement}</strong></h3>
         <button id="likeButton" onClick={handleUpClick} disabled={votesIncrement !== 0}>❤️</button>
         <br />
-        <p><strong>Comments 💬:{article.comment_count}</strong></p>
-        <button>view comments</button>
+        <h3><strong>Comments 💬: {article.comment_count}</strong></h3>
+    <CommentsByArticle />
     <br />
   </section>
+  </>
   )
 }
 

@@ -14,7 +14,7 @@ const CommentsByArticle = () => {
         setLoading(false)
         })
     }, [article_id])
-  
+  // comment added to allow for push, will be removed
   if(loading === true) return <p>Loading...</p>
   return (
     <>

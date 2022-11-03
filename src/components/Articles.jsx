@@ -11,7 +11,7 @@ const Articles = () => {
             setArticles(response.articles);
         })
     }, [])
-
+// comment in here to acknowledge change in file
   return (
     <>
     <h2>Latest Articles</h2>

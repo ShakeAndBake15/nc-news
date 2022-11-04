@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
-import { getArticles, } from "./Api";
+import { getArticles, getArticlesByOrder, getArticlesBySort } from "./Api";
 
 const Articles = () => {
 
@@ -8,13 +8,43 @@ const Articles = () => {
 
     useEffect(() => {
         getArticles().then((response) => {
-            setArticles(response.articles);
+          setArticles(response.articles);
         })
     }, [])
+
+  const handleClickSort = (event) => {
+    event.preventDefault()
+    getArticlesBySort(event.target.value).then((response) => {
+      setArticles(response.articles)
+    })
+  }
+
+  const handleClickOrder = (event) => {
+    event.preventDefault()
+    getArticlesByOrder(event.target.value).then((response) => {
+      setArticles(response.articles)
+    })
+  }
     
   return (
     <>
     <h2>Latest Articles</h2>
+    <form id="sortQueries">
+      <fieldset>
+        <legend>Sort by:</legend>
+        <button id="sortButton" type="submit" onClick={handleClickSort} value="created_at" >Date posted 📅</button>
+        <button id="sortButton" type="submit" onClick={handleClickSort} value="comment_count">Comments 💬</button>
+        <button id="sortButton" type="submit" onClick={handleClickSort} value="votes">Votes ❤️</button>
+      </fieldset>
+    </form>
+    <form id="orderQueries">
+    <fieldset>
+        <legend>Order by:</legend>
+        <button id="orderButton" type="checkbox" onClick={handleClickOrder} value="desc">Most recent 👶</button>
+        <br />
+        <button id="orderButton" type="checkbox" onClick={handleClickOrder} value="asc">Least recent 👴</button>
+      </fieldset>
+    </form>
         {articles.map((article) => {
             return (
                 <section id="articles" key={article.article_id}>

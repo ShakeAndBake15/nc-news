@@ -1,15 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { addCommentByArticle, deleteCommentByArticle, getCommentsByArticle } from "./Api";
+import { UserContext } from "../context/UserContext";
 
 const CommentsByArticle = () => {
-
-    const {article_id} = useParams()
-    const [comments, setComments] = useState([])
-    const [loading, setLoading] = useState(true)
-    const [newComment, setNewComment] = useState('')
-    const [posting, setPosting] = useState(false)
-    const [deleting, setDeleting] = useState(false)
+    
+  const {user} = useContext(UserContext)
+  const {article_id} = useParams()
+  const [comments, setComments] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [newComment, setNewComment] = useState('')
+  const [posting, setPosting] = useState(false)
+  const [deleting, setDeleting] = useState(false)
 
     useEffect(() => {
       commentFetch()
@@ -62,7 +64,7 @@ const CommentsByArticle = () => {
         <dt><strong>Posted:</strong></dt>
         <dd>{comment.created_at.slice(0, 10)}</dd>
       </dl>
-      <button id="deleteButton" value={comment.comment_id} onClick={handleDelete}>Delete 🗑️</button>
+      {user.username !== comment.author ? <em>Cannot delete this comment</em> : <button id="deleteButton" value={comment.comment_id} onClick={handleDelete} disabled={user.username !== comment.author}>Delete 🗑️</button>}
         <br />
       </section>
       )})}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getArticleById, patchArticleById } from "./Api";
 import CommentsByArticle from "./CommentsByArticle";
 
@@ -33,7 +33,7 @@ const ArticleById = () => {
     return <p>Loading...</p>
   }
   if(isError === true){
-    return <h1 id="articleError">Article not found 🤷‍♂️<br />Please return to the home page</h1>
+    return <h1 id="articleError">Article not found 🤷‍♂️<br />Please return to the <Link to={'/'}>home page</Link></h1>
   }
   return (
     <>

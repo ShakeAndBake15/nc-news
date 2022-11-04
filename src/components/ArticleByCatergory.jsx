@@ -24,7 +24,7 @@ const ArticleByCatergory = () => {
         return <p>Loading...</p>
     }
     if(isError === true){
-      return <h1 id="topicError">Topic not found 🤔<br />Please return to the home page</h1>
+      return <h1 id="topicError">Topic not found 🤔<br />Please return to the <Link to={'/'}>home page</Link></h1>
     }
     return (
       <>

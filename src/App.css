@@ -121,12 +121,20 @@ main {
   margin-bottom: 15px;
 }
 
+#topicError {
+  background-color: darkgray;
+}
+
 #articleById {
   height: 95%;
   text-align: left;
   margin-left: 2%;
   margin-right: 2%;
   margin-bottom: 1rem;
+}
+
+#articleError {
+  background-color: darkgray;
 }
 
 #articleTitle {

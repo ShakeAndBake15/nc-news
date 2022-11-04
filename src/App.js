@@ -8,6 +8,7 @@ import NavBar from './components/NavBar'
 import SearchArticles from './components/SearchArticle';
 import ArticleByCatergory from './components/ArticleByCatergory';
 import ArticleById from './components/ArticleById';
+import ErrorPage from './components/ErrorPage';
 import { UserContext } from './context/UserContext';
 
 
@@ -34,6 +35,7 @@ function App() {
           <Route path='/' element={<Articles />} />
           <Route path='/:topic' element={<ArticleByCatergory />} />
           <Route path='/articles/:article_id' element={<ArticleById />} />
+          <Route path='*' element={<ErrorPage />} />
         </Routes>
     </main>
     </div>

@@ -29,6 +29,10 @@ const CommentsByArticle = () => {
   }
 
     const handleClick = (event) => {
+    if(newComment === ''){
+      alert("You cannot submit an empty comment")
+      return;
+    }
     setPosting(true)
     addCommentByArticle(article_id, newComment).then((response) => {
       setComments([response, ...comments])
@@ -42,7 +46,6 @@ const CommentsByArticle = () => {
       commentFetch()
       setDeleting(false)
     })
-
   }
 
   if(loading === true) return <p>Loading...</p>
@@ -64,7 +67,7 @@ const CommentsByArticle = () => {
         <dt><strong>Posted:</strong></dt>
         <dd>{comment.created_at.slice(0, 10)}</dd>
       </dl>
-      {user.username !== comment.author ? <em>Cannot delete this comment</em> : <button id="deleteButton" value={comment.comment_id} onClick={handleDelete} disabled={user.username !== comment.author}>Delete 🗑️</button>}
+      {user.username !== comment.author ? <></> : <button id="deleteButton" value={comment.comment_id} onClick={handleDelete} disabled={user.username !== comment.author}>Delete 🗑️</button>}
         <br />
       </section>
       )})}

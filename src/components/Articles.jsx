@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
-import { getArticles, getArticlesByQuery, } from "./Api";
+import { getArticles, getArticlesByOrder, getArticlesBySort } from "./Api";
 
 const Articles = () => {
 
     const [articles, setArticles] = useState([]);
-    const [value, setValue] = useState('')
 
     useEffect(() => {
         getArticles().then((response) => {
@@ -13,24 +12,37 @@ const Articles = () => {
         })
     }, [])
 
-  const handleClick = (event) => {
-    setValue(event.target.value)
+  const handleClickSort = (event) => {
     event.preventDefault()
-    getArticlesByQuery(value).then((response) => {
+    getArticlesBySort(event.target.value).then((response) => {
       setArticles(response.articles)
     })
-    
+  }
+
+  const handleClickOrder = (event) => {
+    event.preventDefault()
+    getArticlesByOrder(event.target.value).then((response) => {
+      setArticles(response.articles)
+    })
   }
     
   return (
     <>
     <h2>Latest Articles</h2>
-    <form action="">
+    <form id="sortQueries">
       <fieldset>
         <legend>Sort by:</legend>
-        <button type="submit" onClick={handleClick} value="created_at" >Date posted</button>
-        <button type="submit" onClick={handleClick} value="comment_count">Comments</button>
-        <button type="submit" onClick={handleClick} value="votes">Votes</button>
+        <button id="sortButton" type="submit" onClick={handleClickSort} value="created_at" >Date posted 📅</button>
+        <button id="sortButton" type="submit" onClick={handleClickSort} value="comment_count">Comments 💬</button>
+        <button id="sortButton" type="submit" onClick={handleClickSort} value="votes">Votes ❤️</button>
+      </fieldset>
+    </form>
+    <form id="orderQueries">
+    <fieldset>
+        <legend>Order by:</legend>
+        <button id="orderButton" type="checkbox" onClick={handleClickOrder} value="desc">Most recent 👶</button>
+        <br />
+        <button id="orderButton" type="checkbox" onClick={handleClickOrder} value="asc">Least recent 👴</button>
       </fieldset>
     </form>
         {articles.map((article) => {

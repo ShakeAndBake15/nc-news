@@ -29,6 +29,10 @@ const CommentsByArticle = () => {
   }
 
     const handleClick = (event) => {
+    if(newComment === ''){
+      alert("You cannot submit an empty comment")
+      return;
+    }
     setPosting(true)
     addCommentByArticle(article_id, newComment).then((response) => {
       setComments([response, ...comments])
@@ -42,7 +46,6 @@ const CommentsByArticle = () => {
       commentFetch()
       setDeleting(false)
     })
-
   }
 
   if(loading === true) return <p>Loading...</p>

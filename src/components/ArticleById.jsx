@@ -8,12 +8,16 @@ const ArticleById = () => {
   const {article_id} = useParams()
   const [article, setArticle] = useState([])
   const [loading, setLoading] = useState(true)
+  const [isError, setIsError] = useState(false)
   const [votesIncrement, setVotesIncrement] = useState(0)
 
   useEffect(() => {
     getArticleById(article_id).then((response) => {
         setArticle(response.article)
         setLoading(false)
+    }).catch((err) => {
+      setLoading(false)
+      setIsError(true)
     })
   }, [article_id])
 
@@ -27,6 +31,9 @@ const ArticleById = () => {
 
   if(loading === true){
     return <p>Loading...</p>
+  }
+  if(isError === true){
+    return <h1 id="articleError">Article not found 🤷‍♂️<br />Please return to the home page</h1>
   }
   return (
     <>

@@ -8,16 +8,23 @@ const ArticleByCatergory = () => {
     const {topic} = useParams()
     const [articles, setArticles] = useState([])
     const [loading, setLoading] = useState(true)
+    const [isError, setIsError] = useState(false)
 
     useEffect(() => {
         getArticlesByTopic(topic).then((response) => {
           setArticles(response.articles)
           setLoading(false)
+        }).catch((err) => {
+          setLoading(false)
+          setIsError(true)
         })
     })
     
     if(loading === true){
         return <p>Loading...</p>
+    }
+    if(isError === true){
+      return <h1 id="topicError">Topic not found 🤔<br />Please return to the home page</h1>
     }
     return (
       <>
